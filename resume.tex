@@ -20,11 +20,16 @@
 \documentclass[11pt]{awesome-cv}
 
 \usepackage{academicons}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = text, %Colour for external hyperlinks
+  linkcolor    = text, %Colour of internal links
+}
 
 \geometry{left=1.4cm, top=1cm, right=1.4cm, bottom=1cm, footskip=.5cm}
 \colorlet{awesome}{awesome-skyblue}
 \setbool{acvSectionColorHighlight}{false}
-\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+\renewcommand{\acvHeaderSocialSep}{\quad\bullet\quad}
 \makeatletter
 \patchcmd{\@sectioncolor}{\color}{\mdseries\color}{}{}
 \makeatother
@@ -34,7 +39,9 @@
 %-------------------------------------------------------------------------------
 
 \name{Artem}{Klashtorny}
-\position{PhD Student~~~·~~~Electrical and Computer Engineering~~~·~~~University of Waterloo}
+\position{
+    PhD Student \;\bullet\; Electrical and Computer Engineering \;\bullet\; University of Waterloo
+}
 
 \mobile{(+1) 416-561-1728}
 \email{a.klashtorny@gmail.com}

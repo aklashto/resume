@@ -156,6 +156,9 @@
   \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
 }
 
+\definecolor{orcidgreen}{HTML}{A6CE39}
+\definecolor{linkedinblue}{HTML}{0A66C2}
+\definecolor{githubviolet}{HTML}{6E5494}
 
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
@@ -443,14 +446,14 @@
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          \faMobile\acvHeaderIconSep\@mobile%
+          \textcolor{black}{\faPhone}\acvHeaderIconSep\@mobile%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
+          \textcolor{black}{\faEnvelope}\acvHeaderIconSep\href{mailto:\@email}{\@email}%
         }%
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
@@ -462,13 +465,13 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\faGithub\acvHeaderIconSep\@github}%
+          \href{https://github.com/\@github}{\textcolor{githubviolet}{\faGithub}\acvHeaderIconSep\@github}%
         }%
       \ifthenelse{\isundefined{\@orcid}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://orcid.org/\@orcid}{\aiOrcid\acvHeaderIconSep\@orcid}%
+          \href{https://orcid.org/\@orcid}{\textcolor{orcidgreen}{\aiOrcid}\acvHeaderIconSep\@orcid}%
         }%
       \ifthenelse{\isundefined{\@gitlab}}%
         {}%
@@ -486,7 +489,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
+          \href{https://www.linkedin.com/in/\@linkedin}{\textcolor{linkedinblue}{\faLinkedinSquare}\acvHeaderIconSep\@linkedin}%
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
