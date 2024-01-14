@@ -82,6 +82,7 @@
 \RequirePackage{parskip}
 % Needed to deal hyperlink
 \RequirePackage[unicode]{hyperref}
+\RequirePackage{orcidlink}
 \hypersetup{%
   pdftitle={},
   pdfauthor={},
@@ -437,6 +438,11 @@
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
+    \ifthenelse{\isundefined{\@orcid}}%
+      {}%
+      {%
+        \,\orcidlink{\@orcid}
+      }%
     \\[\acvHeaderAfterNameSkip]%
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
@@ -465,14 +471,14 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\textcolor{githubviolet}{\faGithub}\acvHeaderIconSep\@github}%
+          \textcolor{githubviolet}{\faGithub}\acvHeaderIconSep\href{https://github.com/\@github}{\@github}%
         }%
-      \ifthenelse{\isundefined{\@orcid}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://orcid.org/\@orcid}{\textcolor{orcidgreen}{\aiOrcid}\acvHeaderIconSep\@orcid}%
-        }%
+      % \ifthenelse{\isundefined{\@orcid}}%
+      %   {}%
+      %   {%
+      %     \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+      %     \textcolor{orcidgreen}{\aiOrcid}\acvHeaderIconSep\href{https://orcid.org/\@orcid}{\@orcid}%
+      %   }%
       \ifthenelse{\isundefined{\@gitlab}}%
         {}%
         {%
@@ -489,7 +495,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\textcolor{linkedinblue}{\faLinkedinSquare}\acvHeaderIconSep\@linkedin}%
+          \textcolor{linkedinblue}{\faLinkedinSquare}\acvHeaderIconSep\href{https://www.linkedin.com/in/\@linkedin}{\@linkedin}%
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
